@@ -1,17 +1,42 @@
 var amqp = require('amqplib/callback_api');
 
-amqp.connect('amqp://localhost', function(error0, connection) {
+amqp.connect('amqp://localhost', function (error0, connection) {
     if (error0) {
-      console.error('Erro: ', error0);
-      throw error0;
+        console.error('Erro: ', error0);
+        throw error0;
     }
-
     console.log('Conectado com sucesso !');
-    connection.createChannel(function(error1, channel) {
+
+    connection.createChannel(function (error1, channel) {
         if (error1) {
-          console.error('Erro: ', error1);
-          throw error1;
+            console.error('Erro: ', error1);
+            throw error1;
         }
-        console.log('Canal criado com sucesso !');
+
+        var queue = 'pedidos';
+        channel.assertQueue(queue, {
+            durable: true
+        });
+
+        setInterval(() => { //Produzindo mensagens a cada 1 segundo
+            var msg = {
+                data: new Date().toISOString,
+                nome: "Gian Eric",
+                servicos: [
+                    {
+                        descricao: "Instalação do motor de arranque"
+                    },
+                    {
+                        descricao: "Instalação do amortecedor"
+                    },
+                    {
+                        descricao: "Troca da bomba de gasolina"
+                    }
+                ]
+            };
+
+            channel.sendToQueue(queue, Buffer.from(JSON.stringify(msg)));
+            console.log(" [x] Sent %s", msg);
+        }, 1000); 
     });
 });
