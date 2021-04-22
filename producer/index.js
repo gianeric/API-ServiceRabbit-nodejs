@@ -13,7 +13,7 @@ amqp.connect('amqp://localhost', function (error0, connection) {
             throw error1;
         }
 
-        var queue = 'pedidos';
+        var queue = 'pedidos_node';
         channel.assertQueue(queue, {
             durable: true
         });
