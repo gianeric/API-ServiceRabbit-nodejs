@@ -14,7 +14,8 @@ amqp.connect('amqp://localhost', function(error0, connection) {
       throw error1;
     }
 
-    var queue = 'pedidos_node';
+    var queue      = 'pedidos_node',
+        numPedidos = 0;
 
     channel.assertQueue(queue, {
         durable: true
@@ -28,12 +29,21 @@ amqp.connect('amqp://localhost', function(error0, connection) {
     //Consumir
     channel.consume(queue, function(msg) {
         console.log(" [x] Received %s", msg.content.toString());
+        numPedidos += 1;
 
+        console.log(numPedidos.toString());
         //Temporarizador 2 segundos
         setTimeout(() => {
           console.log(" [x] Done %s");
           channel.ack(msg);
         }, 2000);
+
+        if (numPedidos === 9)
+        {
+          console.log("Número máximo de pedidos(9) foi atingindo.");
+          connection.close();
+          process.exit(1);
+        }        
     }, {
         noAck: false
     });
