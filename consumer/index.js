@@ -22,6 +22,10 @@ amqp.connect('amqp://localhost', function(error0, connection) {
 
     console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", queue);
 
+    //Consome de três em três mensagens
+    channel.prefetch(3);
+    
+    //Consumir
     channel.consume(queue, function(msg) {
         console.log(" [x] Received %s", msg.content.toString());
 
