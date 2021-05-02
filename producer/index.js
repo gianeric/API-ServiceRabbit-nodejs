@@ -36,7 +36,10 @@ amqp.connect('amqp://localhost', function (error0, connection) {
             };
 
             channel.sendToQueue(queue, Buffer.from(JSON.stringify(msg)));
-            console.log(" [x] Sent %s", msg);
-        }, 1000); 
+            console.log(" [x] Sent to queue %s", msg);
+            require('./envio_email');
+        }, 10000); 
+
+        
     });
 });
