@@ -38,8 +38,6 @@ amqp.connect('amqp://localhost', function (error0, connection) {
             channel.sendToQueue(queue, Buffer.from(JSON.stringify(msg)));
             console.log(" [x] Sent to queue %s", msg);
             require('./envio_email');
-        }, 10000); 
-
-        
+        }, 1000); 
     });
 });
