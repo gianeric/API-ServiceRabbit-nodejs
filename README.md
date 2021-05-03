@@ -18,17 +18,17 @@ Open RabbitMQ
 
 Producing a message in the queue
 <p align="center">
-  <img src="https://imgur.com/SRUzP4s.gif" width="500" title="Screenshot">
+  <img src="https://imgur.com/SRUzP4s.gif" width="600" title="Screenshot">
 </p>
 
 Consuming a message from the queue with a limit of nine requests
 <p align="center">
-  <img src="https://imgur.com/Q0VEogT.gif" width="500" title="Screenshot">
+  <img src="https://imgur.com/Q0VEogT.gif" width="600" title="Screenshot">
 </p>
 
 Confirming receipt of email
 <p align="center">
-  <img src="https://imgur.com/2jjXhQZ.gif" width="500" title="Screenshot">
+  <img src="https://imgur.com/2jjXhQZ.gif" width="600" title="Screenshot">
 </p>
 
 
