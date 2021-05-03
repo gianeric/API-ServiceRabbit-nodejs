@@ -17,17 +17,17 @@ Open RabbitMQ
 > <link>localhost:15672</link>
 
 Producing a message in the queue
-<p align="left">
+<p align="center">
   <img src="https://imgur.com/SRUzP4s.gif" width="500" title="Screenshot">
 </p>
 
 Consuming a message from the queue with a limit of nine requests
-<p align="left">
+<p align="center">
   <img src="https://imgur.com/Q0VEogT.gif" width="500" title="Screenshot">
 </p>
 
 Confirming receipt of email
-<p align="left">
+<p align="center">
   <img src="https://imgur.com/2jjXhQZ.gif" width="500" title="Screenshot">
 </p>
 
