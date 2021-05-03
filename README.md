@@ -23,7 +23,7 @@ Producing a message in the queue
 
 Consuming a message from the queue with a limit of nine requests
 <p align="left">
-  <img src="https://imgur.com/E6QAo33.gif" width="500" title="Screenshot">
+  <img src="https://imgur.com/Q0VEogT.gif" width="500" title="Screenshot">
 </p>
 
 Confirming receipt of email
