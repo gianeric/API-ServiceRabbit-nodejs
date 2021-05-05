@@ -1,4 +1,5 @@
-var amqp = require('amqplib/callback_api');
+var amqp  = require('amqplib/callback_api');
+var email = require('./envio_email');
 
 amqp.connect('amqp://localhost', function (error0, connection) {
     if (error0) {
@@ -36,8 +37,11 @@ amqp.connect('amqp://localhost', function (error0, connection) {
             };
 
             channel.sendToQueue(queue, Buffer.from(JSON.stringify(msg)));
-            console.log(" [x] Sent to queue %s", msg);
-            require('./envio_email');
-        }, 1000); 
+            
+            corpo_email = "Pedido realizado ! Segue detalhes: " + Buffer.from(JSON.stringify(msg));
+            email(corpo_email);            
+            
+            console.log(" [x] Enviado para a fila %s", msg);
+        }, 10000); 
     });
 });
