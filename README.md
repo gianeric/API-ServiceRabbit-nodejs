@@ -28,7 +28,7 @@ Consuming a message from the queue with a limit of nine requests
 
 Confirming receipt of email
 <p align="center">
-  <img src="https://imgur.com/2jjXhQZ.gif" width="600" title="Screenshot">
+  <img src="https://imgur.com/Vd0JAUC.gif" width="600" title="Screenshot">
 </p>
 
 
